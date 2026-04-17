@@ -69,156 +69,80 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-[2] mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6 lg:px-8">
-        {/* Top badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="group relative mb-12 inline-flex cursor-default items-center gap-3 overflow-hidden rounded-full border border-primary/25 bg-primary/[0.06] px-5 py-2.5 text-[11px] uppercase tracking-[0.24em] text-primary backdrop-blur-md"
-        >
-          <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 transition-transform duration-1000 group-hover:translate-x-full" />
-          <span className="relative flex h-2 w-2 flex-shrink-0">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-70" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-          </span>
-          AI Analytics · Autonomous Pipeline
-        </motion.div>
+        {/* Minimal editorial hero text */}
+        <div className="relative z-[2] mx-auto flex w-full max-w-5xl flex-col items-center px-4 pb-16 pt-8 text-center sm:px-6 lg:px-8">
 
-        {/* Creative editorial headline block */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.13 } } }}
-          className="mx-auto mb-10 max-w-5xl text-center"
-        >
-          {/* Overline label */}
+          {/* Tiny eyebrow */}
           <motion.p
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }}
-            className="mb-5 font-mono text-[11px] uppercase tracking-[0.3em] text-white/30"
+            initial={{ opacity: 0, letterSpacing: "0.5em" }}
+            animate={{ opacity: 1, letterSpacing: "0.28em" }}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-10 font-mono text-[10px] uppercase text-white/25"
           >
-            — следующее поколение аналитики —
+            AI · Analytics · 2026
           </motion.p>
 
-          {/* Headline: mixed serif/sans editorial style */}
+          {/* THE HOOK — 4 words, giant Playfair italic */}
           <motion.h1
-            variants={{ hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] } } }}
-            className="leading-[1] tracking-tight"
+            initial={{ opacity: 0, y: 48 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-editorial select-none"
+            style={{
+              fontSize: "clamp(4.5rem, 14vw, 12rem)",
+              lineHeight: 0.9,
+              letterSpacing: "-0.02em",
+              background: "linear-gradient(160deg, #ffffff 30%, rgba(255,255,255,0.45) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              textShadow: "none",
+            }}
           >
-            {/* Line 1: thin sans-serif */}
-            <span className="block text-[2.6rem] font-light text-white/70 sm:text-[3.2rem] md:text-[4rem] lg:text-[4.8rem]">
-              Данные
-            </span>
-            {/* Line 2: giant Playfair italic — the centrepiece */}
+            Данные —{" "}
             <span
-              className="font-editorial block bg-gradient-to-br from-white via-white/95 to-white/55 bg-clip-text text-transparent"
-              style={{ fontSize: "clamp(3.8rem, 11vw, 9.5rem)", lineHeight: 0.92 }}
+              style={{
+                background: "linear-gradient(135deg, #10b981 0%, #6ee7b7 60%, #10b981 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
             >
-              говорят сами.
-            </span>
-            {/* Line 3: emerald accent word */}
-            <span
-              className="font-editorial mt-2 block bg-gradient-to-r from-primary via-emerald-300 to-primary/60 bg-clip-text text-transparent"
-              style={{ fontSize: "clamp(2rem, 5.5vw, 5rem)", lineHeight: 1.1, textShadow: "none" }}
-            >
-              Слышьте их.
+              ясность.
             </span>
           </motion.h1>
 
-          {/* Decorative mono line */}
+          {/* One-liner caption */}
           <motion.p
-            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.8, delay: 0.1 } } }}
-            className="mt-6 font-mono text-[10px] uppercase tracking-[0.3em] text-white/20"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-10 font-light text-white/40 sm:text-lg md:text-xl"
+            style={{ letterSpacing: "0.01em" }}
           >
-            Upload&nbsp;→&nbsp;Analyse&nbsp;→&nbsp;Decide
+            Загрузите таблицу — получите инсайты.
           </motion.p>
-        </motion.div>
 
-        {/* Floating data chips */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08, delayChildren: 0.5 } } }}
-          className="mb-10 flex flex-wrap justify-center gap-2"
-        >
-          {[
-            { label: "Аномалия −3σ", cls: "text-red-400 border-red-400/20 bg-red-500/5" },
-            { label: "↑ Revenue +17%", cls: "text-primary border-primary/25 bg-primary/5" },
-            { label: "Schema ✓ 14 cols", cls: "text-sky-400 border-sky-400/20 bg-sky-500/5" },
-            { label: "842k rows", cls: "text-white/40 border-white/10 bg-white/[0.03]" },
-            { label: "Insight #4 ready", cls: "text-yellow-400 border-yellow-400/20 bg-yellow-500/5" },
-          ].map((chip) => (
-            <motion.span
-              key={chip.label}
-              variants={{ hidden: { opacity: 0, scale: 0.75, y: 8 }, visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } } }}
-              className={`rounded-full border px-3.5 py-1.5 font-mono text-[11px] backdrop-blur-sm ${chip.cls}`}
-            >
-              {chip.label}
-            </motion.span>
-          ))}
-        </motion.div>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto mb-10 max-w-2xl text-center text-base leading-[1.85] text-white/50 sm:text-lg md:text-[19px]"
-        >
-          Загрузите{" "}
-          <span className="font-medium text-white/90">CSV или Excel</span>{" "}
-          — система найдёт аномалии, зависимости и точки роста, превратив строки в{" "}
-          <span className="font-medium text-primary">готовые инсайты</span> без единой строки кода.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
-        >
-          <Button
-            size="lg"
-            asChild
-            className="group relative h-14 overflow-hidden rounded-2xl px-9 text-[15px] font-semibold shadow-[0_0_40px_rgba(16,185,129,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_64px_rgba(16,185,129,0.45)]"
+          {/* Single CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-12"
           >
-            <Link href="#demo" className="flex items-center gap-2.5">
-              <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.22)_50%,transparent_60%)] transition-transform duration-500 group-hover:translate-x-full" />
-              <span className="relative z-10">Запустить анализ</span>
-              <Zap className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-            </Link>
-          </Button>
-
-          <Link
-            href="#architecture"
-            className="group flex h-14 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] px-9 text-[15px] font-medium text-white/70 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
-          >
-            Как это работает
-            <ChevronRight className="h-4 w-4 opacity-60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:opacity-100" />
-          </Link>
-        </motion.div>
-
-        {/* Trust pills */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.7 }}
-          className="mb-16 flex flex-wrap items-center justify-center gap-3 text-[13px] text-white/45"
-        >
-          {[
-            { icon: ShieldCheck, label: "Без ручной рутины" },
-            { icon: BrainCircuit, label: "AI-инсайты по данным" },
-            { icon: TrendingUp, label: "Быстрее для бизнеса" },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className="flex items-center gap-2 rounded-full border border-white/8 bg-white/[0.025] px-4 py-2 backdrop-blur-md"
+            <Button
+              size="lg"
+              asChild
+              className="group relative h-14 overflow-hidden rounded-2xl px-10 text-[15px] font-semibold shadow-[0_0_48px_rgba(16,185,129,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_72px_rgba(16,185,129,0.5)]"
             >
-              <item.icon className="h-3.5 w-3.5 text-primary" />
-              <span>{item.label}</span>
-            </div>
-          ))}
-        </motion.div>
+              <Link href="#demo" className="flex items-center gap-3">
+                <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_40%,rgba(255,255,255,0.22)_50%,transparent_60%)] transition-transform duration-600 group-hover:translate-x-full" />
+                <span className="relative z-10">Начать анализ</span>
+                <Zap className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+              </Link>
+            </Button>
+          </motion.div>
+        </div>
 
         {/* Product preview */}
         <motion.div
